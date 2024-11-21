@@ -77,10 +77,10 @@ const app = Vue.createApp({
             event.preventDefault();
         },
         local_url(item) {
-            return "./b0rk/status/" + item.id_str;
+            return "./leverglowh/status/" + item.id_str;
         },
         twitter_url(item) {
-            return "https://twitter.com/b0rk/status/" + item.id_str;
+            return "https://twitter.com/leverglowh/status/" + item.id_str;
         },
     }
 })
