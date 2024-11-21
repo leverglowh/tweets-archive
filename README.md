@@ -13,6 +13,21 @@ I got those from [this tool by Darius Kazemi](https://tinysubversions.com/twitte
 
 ### how to set it up
 
+1. Download `TwitterArchive.zip` from webserver
+2. enter password and unzip it into a directory, let's call it ARCHIVE_DIR
+3. 
+  ```
+  git clone -b setup https://github.com/leverglowh/tweets-archive.git
+  cd tweets-archive
+  cp ARCHIVE_DIR/searchDocuments.js .
+  cp -R ARCHIVE_DIR/tweets_media .
+  ```
+2. Run `python3 scripts/build.py`
+
+Ignore the rest of the steps/edits.
+
+---
+
 1. Get your twitter archive from Twitter (seems to still be working as of July 25, 2023)
 2. Use Darius Kazemi's [twitter archive tool](https://tinysubversions.com/twitter-archive/make-your-own/) to generate a zip file, and unzip it into a directory, let's call it ARCHIVE_DIR
 3. 
