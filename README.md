@@ -42,3 +42,7 @@ It literally copies all of the CSS from https://nitter.net so you should be able
 use any of Nitter's [themes](https://github.com/zedeus/nitter/tree/master/public/css/themes). Just
 copy the CSS file and replace `twitter.css` in the `index.html` with the theme
 of your choice.
+
+### Features
+
+- Chinese tweet search optimization.

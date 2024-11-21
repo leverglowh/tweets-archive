@@ -21,6 +21,29 @@ const app = Vue.createApp({
             fields: ['full_text'], // fields to index for full-text search
             storeFields: ['full_text', 'created_at', 'id_str', 'favorite_count', 'retweet_count'],
             idField: 'id_str',
+            tokenize: (term) => {
+                if (typeof term === 'string') term = term.toLowerCase();
+                const segmenter = Intl.Segmenter && new Intl.Segmenter("zh", { granularity: "word" });
+                if (!segmenter) return [term];
+                const tokens = [];
+                for (const seg of segmenter.segment(term)) {
+                    tokens.push(seg.segment);
+                }
+                return tokens;
+            },
+            searchOptions: {
+                combineWith: 'AND', // important for search chinese
+                processTerm: (term) => {
+                    if (typeof term === 'string') term = term.toLowerCase();
+                    const segmenter = Intl.Segmenter && new Intl.Segmenter("zh", { granularity: "word" });
+                    if (!segmenter) return term;
+                    const tokens = [];
+                    for (const seg of segmenter.segment(term)) {
+                        tokens.push(seg.segment);
+                    }
+                    return tokens;
+                },
+            },
         });
         this.miniSearch.addAll(this.tweets);
         /* infinite scroll */
